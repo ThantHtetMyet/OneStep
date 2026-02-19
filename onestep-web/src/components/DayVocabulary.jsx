@@ -152,10 +152,23 @@ const DayVocabulary = ({ day, mode, onBack }) => {
         </div>
       </div>
       {isFinished && (
-        <div className="flex flex-col gap-2 border-4 border-black bg-[#fef08a] px-6 py-4 text-center text-lg font-extrabold shadow-[0_6px_0_#000000]">
-          <div>Final Result</div>
-          <div>Correct: {correctCount}</div>
-          <div>Wrong: {wrongCount}</div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-6 py-10">
+          <div className="flex w-full max-w-md flex-col gap-4 border-4 border-black bg-[#f97316] px-6 py-6 text-center shadow-[0_10px_0_#000000]">
+            <div className="text-3xl font-extrabold text-white">Final Result</div>
+            <div className="rounded border-2 border-black bg-[#22c55e] px-4 py-3 text-xl font-extrabold text-white">
+              Correct: {correctCount}
+            </div>
+            <div className="rounded border-2 border-black bg-[#ef4444] px-4 py-3 text-xl font-extrabold text-white">
+              Wrong: {wrongCount}
+            </div>
+            <button
+              type="button"
+              onClick={onBack}
+              className="border-2 border-black bg-[#ffd44d] px-4 py-2 text-base font-extrabold"
+            >
+              Back
+            </button>
+          </div>
         </div>
       )}
       <div className="flex flex-col gap-5 border-4 border-black bg-white px-6 py-5 shadow-[0_6px_0_#000000]">
