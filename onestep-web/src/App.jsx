@@ -7,7 +7,7 @@ function App() {
         <div className="relative flex items-center text-4xl font-extrabold tracking-wide">
           <span className="inline-block">I-STEP</span>
           <img
-            className="absolute right-[-12px] top-[70%] h-[28px] w-[28px] -translate-y-1/2 rotate-[30deg]"
+            className="absolute right-0 top-full mt-1 h-[28px] w-[28px] rotate-[30deg]"
             src={footprint}
             alt=""
           />
