@@ -36,12 +36,14 @@ const buildImageMap = () =>
     })
   )
 
-const DayVocabulary = ({ day, onBack }) => {
+const DayVocabulary = ({ day, mode, onBack }) => {
   const items = useMemo(() => parseVocabulary(dataXml), [])
   const imageById = useMemo(() => buildImageMap(), [])
   const dayItems = items.filter((entry) => entry.day === String(day))
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [revealStep, setRevealStep] = useState(0)
+  const [guessWord, setGuessWord] = useState('')
+  const [checked, setChecked] = useState(false)
+  const [wordCorrect, setWordCorrect] = useState(false)
 
 
   if (dayItems.length === 0) {
@@ -54,39 +56,54 @@ const DayVocabulary = ({ day, onBack }) => {
 
   const entry = dayItems[currentIndex]
   const imageUrl = entry ? imageById[entry.id] : null
-  const showImage = revealStep >= 1
-  const showDetails = revealStep >= 2
+  const isPrevDisabled = currentIndex === 0
+  const isNextDisabled = currentIndex === dayItems.length - 1
+  const isCheckDisabled = guessWord.trim() === ''
 
-  const isPrevDisabled = currentIndex === 0 && revealStep === 0
-  const isNextDisabled =
-    currentIndex === dayItems.length - 1 && revealStep === 2
+  const resetGuess = () => {
+    setGuessWord('')
+    setChecked(false)
+    setWordCorrect(false)
+  }
 
   const handlePrev = () => {
-    if (revealStep > 0) {
-      setRevealStep((step) => step - 1)
-      return
-    }
     if (currentIndex > 0) {
       setCurrentIndex((index) => index - 1)
-      setRevealStep(2)
+      resetGuess()
     }
   }
 
   const handleNext = () => {
-    if (revealStep < 2) {
-      setRevealStep((step) => step + 1)
-      return
-    }
     if (currentIndex < dayItems.length - 1) {
       setCurrentIndex((index) => index + 1)
-      setRevealStep(0)
+      resetGuess()
     }
+  }
+
+  const handleCheck = () => {
+    const normalizedWord = guessWord.trim().toLowerCase()
+    const actualWord = entry.word?.trim().toLowerCase() ?? ''
+
+    setWordCorrect(normalizedWord === actualWord)
+    setChecked(true)
+  }
+
+  const handleSpeak = () => {
+    if (typeof window === 'undefined' || !entry?.word) {
+      return
+    }
+    const utterance = new SpeechSynthesisUtterance(entry.word)
+    utterance.lang = 'en-US'
+    window.speechSynthesis.cancel()
+    window.speechSynthesis.speak(utterance)
   }
 
   return (
     <section className="mx-auto mt-10 flex w-full max-w-4xl flex-col gap-6 px-6 pb-10">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="text-2xl font-extrabold">Day-{String(day).padStart(2, '0')}</div>
+        <div className="text-2xl font-extrabold">
+          Day-{String(day).padStart(2, '0')} · {mode === 'learn' ? 'Learn' : 'Answer'}
+        </div>
         <div className="text-lg font-semibold">
           Word {currentIndex + 1} / {dayItems.length}
         </div>
@@ -96,31 +113,92 @@ const DayVocabulary = ({ day, onBack }) => {
           <div className="rounded border-2 border-black bg-black px-3 py-1 text-lg font-extrabold text-white">
             No. {entry.id}
           </div>
-          <div className="text-3xl font-extrabold">{entry.word}</div>
-          <div className="text-lg font-semibold uppercase text-[#444444]">
-            {entry.partOfSpeech}
-          </div>
         </div>
 
-        {showImage && (
-          <div className="flex items-center gap-4">
-            {imageUrl ? (
-              <img
-                className="h-28 w-28 rounded border-2 border-black object-cover"
-                src={imageUrl}
-                alt={entry.word}
-              />
-            ) : (
-              <div className="flex h-28 w-28 items-center justify-center rounded border-2 border-black bg-[#f2f0ee] text-sm font-semibold">
-                No Image
-              </div>
-            )}
+        <div className="flex items-center gap-4">
+          {imageUrl ? (
+            <img
+              className="h-32 w-32 rounded border-2 border-black object-cover"
+              src={imageUrl}
+              alt="Vocabulary"
+            />
+          ) : (
+            <div className="flex h-32 w-32 items-center justify-center rounded border-2 border-black bg-[#f2f0ee] text-sm font-semibold">
+              No Image
+            </div>
+          )}
+        </div>
+
+        {mode === 'answer' && (
+          <div className="flex flex-col gap-3">
+            <div className="text-base font-semibold">Guess the word</div>
+            <input
+              value={guessWord}
+              onChange={(event) => setGuessWord(event.target.value)}
+              className="w-full border-2 border-black px-3 py-2 text-base font-semibold"
+              placeholder="Type the word"
+            />
+            <button
+              type="button"
+              onClick={handleCheck}
+              disabled={isCheckDisabled}
+              className="w-full border-2 border-black bg-[#3a7be0] px-4 py-2 text-base font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Check
+            </button>
           </div>
         )}
 
-        {showDetails && (
+        {mode === 'answer' && checked && (
           <div className="flex flex-col gap-3">
-            <div className="text-lg font-semibold">{entry.meaning}</div>
+            <div className="text-base font-semibold">
+              Word: {wordCorrect ? '✅' : '❌'}
+            </div>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="text-3xl font-extrabold">{entry.word}</div>
+              <div className="text-lg font-semibold uppercase text-[#444444]">
+                {entry.partOfSpeech}
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="text-lg font-semibold">{entry.meaning}</div>
+              <button
+                type="button"
+                onClick={handleSpeak}
+                className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
+              >
+                🔊
+              </button>
+            </div>
+            <div className="text-base font-semibold text-[#444444]">
+              {entry.synonym}
+            </div>
+            <ul className="list-disc space-y-2 pl-6 text-base font-semibold">
+              {entry.sentences.map((sentence, index) => (
+                <li key={`${entry.id}-${index}`}>{sentence}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {mode === 'learn' && (
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="text-3xl font-extrabold">{entry.word}</div>
+              <div className="text-lg font-semibold uppercase text-[#444444]">
+                {entry.partOfSpeech}
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="text-lg font-semibold">{entry.meaning}</div>
+              <button
+                type="button"
+                onClick={handleSpeak}
+                className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
+              >
+                🔊
+              </button>
+            </div>
             <div className="text-base font-semibold text-[#444444]">
               {entry.synonym}
             </div>
@@ -136,7 +214,7 @@ const DayVocabulary = ({ day, onBack }) => {
         <button
           type="button"
           onClick={onBack}
-          className="border-2 border-black bg-white px-4 py-2 text-base font-extrabold"
+          className="border-2 border-black bg-[#ffd44d] px-4 py-2 text-base font-extrabold"
         >
           Back
         </button>
@@ -145,7 +223,7 @@ const DayVocabulary = ({ day, onBack }) => {
             type="button"
             onClick={handlePrev}
             disabled={isPrevDisabled}
-            className="border-2 border-black bg-black px-4 py-2 text-base font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="border-2 border-black bg-[#8b5cf6] px-4 py-2 text-base font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             Prev
           </button>
@@ -153,7 +231,7 @@ const DayVocabulary = ({ day, onBack }) => {
             type="button"
             onClick={handleNext}
             disabled={isNextDisabled}
-            className="border-2 border-black bg-black px-4 py-2 text-base font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="border-2 border-black bg-[#f97316] px-4 py-2 text-base font-extrabold text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             Next
           </button>
