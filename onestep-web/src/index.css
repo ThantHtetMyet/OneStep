@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import "tailwindcss";
 
 :root {
-  font-family: 'Segoe UI', 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Bebas Neue", "Segoe UI", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #111111;
