@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vocabulary>
+  <entry>
+    <day>1</day>
+    <id>1</id>
+    <word>Ameliorate</word>
+    <partOfSpeech>Verb</partOfSpeech>
+    <meaning>To make something bad or unsatisfactory better.</meaning>
+    <synonym>Alleviate, Improve, Mitigate</synonym>
+    <sentences>
+      <sentence>The new reform was designed to ameliorate the living conditions of the urban poor.</sentence>
+      <sentence>Steps are being taken to ameliorate the effects of the current economic crisis.</sentence>
+      <sentence>The government's goal is to ameliorate the housing shortage in the capital.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>1</day>
+    <id>2</id>
+    <word>Ubiquitous</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Present, appearing, or found everywhere.</meaning>
+    <synonym>Pervasive, Omnipresent, Universal</synonym>
+    <sentences>
+      <sentence>Mobile phones have become ubiquitous in modern society.</sentence>
+      <sentence>The influence of social media is ubiquitous, affecting even the most remote areas.</sentence>
+      <sentence>In the digital age, data collection is ubiquitous and often goes unnoticed.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>1</day>
+    <id>3</id>
+    <word>Surreptitiously</word>
+    <partOfSpeech>Adverb</partOfSpeech>
+    <meaning>In a way that attempts to avoid notice or attention; secretively.</meaning>
+    <synonym>Clandestinely, Stealthily, Covertly</synonym>
+    <sentences>
+      <sentence>He surreptitiously slipped the document into his pocket before leaving the room.</sentence>
+      <sentence>The cameras were surreptitiously installed to monitor the building's exits.</sentence>
+      <sentence>She surreptitiously checked her watch during the long, tedious meeting.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>1</day>
+    <id>4</id>
+    <word>Vociferous</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Expressing or characterized by vehement opinions; loud and forceful.</meaning>
+    <synonym>Clamorous, Strident, Outspoken</synonym>
+    <sentences>
+      <sentence>The proposal met with vociferous opposition from the local community.</sentence>
+      <sentence>He was a vociferous critic of the new environmental policies.</sentence>
+      <sentence>The fans were vociferous in their support of the underdog team.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>1</day>
+    <id>5</id>
+    <word>Effervescent</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Vivacious and enthusiastic; (of a liquid) giving off bubbles.</meaning>
+    <synonym>Ebullient, High-spirited, Bubbling</synonym>
+    <sentences>
+      <sentence>Her effervescent personality made her the life of every party.</sentence>
+      <sentence>The speaker’s effervescent style kept the audience engaged for hours.</sentence>
+      <sentence>The drink was cold and effervescent, providing instant refreshment.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>2</day>
+    <id>6</id>
+    <word>Pernicious</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Having a harmful effect, especially in a gradual or subtle way.</meaning>
+    <synonym>Damaging, Deleterious, Malignant</synonym>
+    <sentences>
+      <sentence>The pernicious influence of social media on body image is a growing concern.</sentence>
+      <sentence>Long-term exposure to these chemicals can have a pernicious effect on health.</sentence>
+      <sentence>The spread of misinformation has a pernicious impact on democratic processes.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>2</day>
+    <id>7</id>
+    <word>Circumvent</word>
+    <partOfSpeech>Verb</partOfSpeech>
+    <meaning>Find a way around an obstacle or a rule, often in a clever or dishonest way.</meaning>
+    <synonym>Bypass, Evade, Sidestep</synonym>
+    <sentences>
+      <sentence>The company was accused of trying to circumvent tax laws using offshore accounts.</sentence>
+      <sentence>They managed to circumvent the security system by exploiting a software glitch.</sentence>
+      <sentence>Commuters often take back roads to circumvent the heavy morning traffic.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>2</day>
+    <id>8</id>
+    <word>Reticent</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Not revealing one's thoughts or feelings readily.</meaning>
+    <synonym>Reserved, Introverted, Inhibited</synonym>
+    <sentences>
+      <sentence>She was extremely reticent about her personal life during the interview.</sentence>
+      <sentence>The witness was reticent to provide details for fear of retaliation.</sentence>
+      <sentence>Despite his success, he remains reticent and prefers to stay out of the spotlight.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>2</day>
+    <id>9</id>
+    <word>Mitigate</word>
+    <partOfSpeech>Verb</partOfSpeech>
+    <meaning>To make something less severe, serious, or painful.</meaning>
+    <synonym>Diminish, Assuage, Palliate</synonym>
+    sentences>
+      <sentence>Planting more trees is a vital strategy to mitigate the effects of climate change.</sentence>
+      <sentence>The new safety regulations are intended to mitigate the risk of accidents.</sentence>
+      <sentence>The medicine helped to mitigate the pain after the surgery.</sentence>
+    </sentences>
+  </entry>
+  <entry>
+    <day>2</day>
+    <id>10</id>
+    <word>Esoteric</word>
+    <partOfSpeech>Adjective</partOfSpeech>
+    <meaning>Intended for or likely to be understood by only a small number of people with specialized knowledge.</meaning>
+    <synonym>Abstruse, Obscure, Arcane</synonym>
+    <sentences>
+      <sentence>The professor’s lecture was filled with esoteric references that few students understood.</sentence>
+      <sentence>He has an esoteric collection of rare 18th-century medical instruments.</sentence>
+      <sentence>The debate became so esoteric that the general public quickly lost interest.</sentence>
+    </sentences>
+  </entry>
+</vocabulary>

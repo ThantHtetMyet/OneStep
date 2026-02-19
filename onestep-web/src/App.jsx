@@ -1,13 +1,18 @@
+import { useState } from 'react'
+import DayCard from './components/DayCard'
+import DayVocabulary from './components/DayVocabulary'
 import footprint from './assets/footprint.png'
 
 function App() {
+  const [selectedDay, setSelectedDay] = useState(null)
+
   return (
     <div className="min-h-screen bg-[#f2f0ee] text-[#111111]">
       <header className="flex items-center justify-center bg-[#d59a2a] py-5">
         <div className="relative flex items-center text-4xl font-extrabold tracking-wide">
           <span className="inline-block">I-STEP</span>
           <img
-            className="absolute right-0 top-full mt-1 h-[28px] w-[28px] rotate-[30deg]"
+            className="absolute right-[-18px] top-[76%] h-[28px] w-[28px] -translate-y-1/2 rotate-[30deg]"
             src={footprint}
             alt=""
           />
@@ -15,20 +20,20 @@ function App() {
       </header>
 
       <section className="grid grid-cols-2 justify-items-center gap-6 px-6 pt-8">
-        <div className="flex h-[190px] w-[170px] flex-col items-center justify-center gap-3 border-4 border-black bg-[#3a7be0] shadow-[0_6px_0_#000000]">
-          <div className="grid h-10 w-10 place-items-center rounded-[2px] border-2 border-black bg-black text-2xl text-[#e7e7e7]">
-            ◎
-          </div>
-          <div className="text-3xl font-extrabold">Day-01</div>
-        </div>
-
-        <div className="flex h-[190px] w-[170px] flex-col items-center justify-center gap-3 border-4 border-black bg-[#d6453b] shadow-[0_6px_0_#000000]">
-          <div className="grid h-10 w-10 place-items-center rounded-[2px] border-2 border-black bg-black text-2xl text-[#e7e7e7]">
-            ◔
-          </div>
-          <div className="text-3xl font-extrabold">Day-02</div>
-        </div>
+        <DayCard
+          label="Day-01"
+          icon="◎"
+          colorClass="bg-[#3a7be0]"
+          onClick={() => setSelectedDay(1)}
+        />
+        <DayCard
+          label="Day-02"
+          icon="◔"
+          colorClass="bg-[#d6453b]"
+          onClick={() => setSelectedDay(2)}
+        />
       </section>
+      {selectedDay && <DayVocabulary day={selectedDay} />}
     </div>
   )
 }
