@@ -19,21 +19,29 @@ function App() {
         </div>
       </header>
 
-      <section className="grid grid-cols-2 justify-items-center gap-6 px-6 pt-8">
-        <DayCard
-          label="Day-01"
-          icon="◎"
-          colorClass="bg-[#3a7be0]"
-          onClick={() => setSelectedDay(1)}
+      {!selectedDay && (
+        <section className="grid grid-cols-2 justify-items-center gap-6 px-6 pt-8">
+          <DayCard
+            label="Day-01"
+            icon="◎"
+            colorClass="bg-[#3a7be0]"
+            onClick={() => setSelectedDay(1)}
+          />
+          <DayCard
+            label="Day-02"
+            icon="◔"
+            colorClass="bg-[#d6453b]"
+            onClick={() => setSelectedDay(2)}
+          />
+        </section>
+      )}
+      {selectedDay && (
+        <DayVocabulary
+          key={selectedDay}
+          day={selectedDay}
+          onBack={() => setSelectedDay(null)}
         />
-        <DayCard
-          label="Day-02"
-          icon="◔"
-          colorClass="bg-[#d6453b]"
-          onClick={() => setSelectedDay(2)}
-        />
-      </section>
-      {selectedDay && <DayVocabulary day={selectedDay} />}
+      )}
     </div>
   )
 }
