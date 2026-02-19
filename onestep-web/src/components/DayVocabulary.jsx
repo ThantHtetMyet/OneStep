@@ -42,8 +42,10 @@ const DayVocabulary = ({ day, mode, onBack }) => {
   const dayItems = items.filter((entry) => entry.day === String(day))
   const [currentIndex, setCurrentIndex] = useState(0)
   const [guessWord, setGuessWord] = useState('')
+  const [selectedPos, setSelectedPos] = useState('')
   const [checked, setChecked] = useState(false)
   const [wordCorrect, setWordCorrect] = useState(false)
+  const [posCorrect, setPosCorrect] = useState(false)
 
 
   if (dayItems.length === 0) {
@@ -58,12 +60,14 @@ const DayVocabulary = ({ day, mode, onBack }) => {
   const imageUrl = entry ? imageById[entry.id] : null
   const isPrevDisabled = currentIndex === 0
   const isNextDisabled = currentIndex === dayItems.length - 1
-  const isCheckDisabled = guessWord.trim() === ''
+  const isCheckDisabled = guessWord.trim() === '' || selectedPos === ''
 
   const resetGuess = () => {
     setGuessWord('')
+    setSelectedPos('')
     setChecked(false)
     setWordCorrect(false)
+    setPosCorrect(false)
   }
 
   const handlePrev = () => {
@@ -83,8 +87,19 @@ const DayVocabulary = ({ day, mode, onBack }) => {
   const handleCheck = () => {
     const normalizedWord = guessWord.trim().toLowerCase()
     const actualWord = entry.word?.trim().toLowerCase() ?? ''
+    const normalizedSelectedPos = selectedPos.trim().toLowerCase()
+    const actualPos = entry.partOfSpeech?.trim().toLowerCase() ?? ''
+    const normalizedPos =
+      actualPos === 'adj' ? 'adjective' : actualPos === 'adv' ? 'adverb' : actualPos
+    const normalizedChoice =
+      normalizedSelectedPos === 'adj'
+        ? 'adjective'
+        : normalizedSelectedPos === 'adv'
+        ? 'adverb'
+        : normalizedSelectedPos
 
     setWordCorrect(normalizedWord === actualWord)
+    setPosCorrect(normalizedChoice === normalizedPos)
     setChecked(true)
   }
 
@@ -97,6 +112,17 @@ const DayVocabulary = ({ day, mode, onBack }) => {
     window.speechSynthesis.cancel()
     window.speechSynthesis.speak(utterance)
   }
+
+  const posOptions = [
+    'Noun',
+    'Verb',
+    'Adjective',
+    'Adverb',
+    'Pronoun',
+    'Preposition',
+    'Conjunction',
+    'Interjection',
+  ]
 
   return (
     <section className="mx-auto mt-10 flex w-full max-w-4xl flex-col gap-6 px-6 pb-10">
@@ -138,6 +164,26 @@ const DayVocabulary = ({ day, mode, onBack }) => {
               className="w-full border-2 border-black px-3 py-2 text-base font-semibold"
               placeholder="Type the word"
             />
+            <div className="text-base font-semibold">Select part of speech</div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+              {posOptions.map((option) => {
+                const isSelected = selectedPos === option
+                return (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => setSelectedPos(option)}
+                    className={`border-2 border-black px-3 py-2 text-sm font-extrabold ${
+                      isSelected
+                        ? 'bg-[#22c55e] text-white'
+                        : 'bg-[#fef08a] text-[#111111]'
+                    }`}
+                  >
+                    {option}
+                  </button>
+                )
+              })}
+            </div>
             <button
               type="button"
               onClick={handleCheck}
@@ -153,6 +199,9 @@ const DayVocabulary = ({ day, mode, onBack }) => {
           <div className="flex flex-col gap-3">
             <div className="text-base font-semibold">
               Word: {wordCorrect ? '✅' : '❌'}
+            </div>
+            <div className="text-base font-semibold">
+              Part of Speech: {posCorrect ? '✅' : '❌'}
             </div>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <div className="text-3xl font-extrabold">{entry.word}</div>
