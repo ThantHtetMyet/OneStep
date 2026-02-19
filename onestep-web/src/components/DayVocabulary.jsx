@@ -46,6 +46,9 @@ const DayVocabulary = ({ day, mode, onBack }) => {
   const [checked, setChecked] = useState(false)
   const [wordCorrect, setWordCorrect] = useState(false)
   const [posCorrect, setPosCorrect] = useState(false)
+  const [results, setResults] = useState(() =>
+    dayItems.map(() => null)
+  )
 
 
   if (dayItems.length === 0) {
@@ -98,9 +101,17 @@ const DayVocabulary = ({ day, mode, onBack }) => {
         ? 'adverb'
         : normalizedSelectedPos
 
-    setWordCorrect(normalizedWord === actualWord)
-    setPosCorrect(normalizedChoice === normalizedPos)
+    const isWordCorrect = normalizedWord === actualWord
+    const isPosCorrect = normalizedChoice === normalizedPos
+
+    setWordCorrect(isWordCorrect)
+    setPosCorrect(isPosCorrect)
     setChecked(true)
+    setResults((prev) => {
+      const next = [...prev]
+      next[currentIndex] = { wordCorrect: isWordCorrect, posCorrect: isPosCorrect }
+      return next
+    })
   }
 
   const handleSpeak = () => {
@@ -123,6 +134,12 @@ const DayVocabulary = ({ day, mode, onBack }) => {
     'Conjunction',
     'Interjection',
   ]
+  const completedCount = results.filter(Boolean).length
+  const correctCount = results.filter(
+    (result) => result && result.wordCorrect && result.posCorrect
+  ).length
+  const wrongCount = completedCount - correctCount
+  const isFinished = mode === 'answer' && completedCount === dayItems.length
 
   return (
     <section className="mx-auto mt-10 flex w-full max-w-4xl flex-col gap-6 px-6 pb-10">
@@ -134,6 +151,13 @@ const DayVocabulary = ({ day, mode, onBack }) => {
           Word {currentIndex + 1} / {dayItems.length}
         </div>
       </div>
+      {isFinished && (
+        <div className="flex flex-col gap-2 border-4 border-black bg-[#fef08a] px-6 py-4 text-center text-lg font-extrabold shadow-[0_6px_0_#000000]">
+          <div>Final Result</div>
+          <div>Correct: {correctCount}</div>
+          <div>Wrong: {wrongCount}</div>
+        </div>
+      )}
       <div className="flex flex-col gap-5 border-4 border-black bg-white px-6 py-5 shadow-[0_6px_0_#000000]">
         <div className="flex flex-wrap items-center gap-4">
           <div className="rounded border-2 border-black bg-black px-3 py-1 text-lg font-extrabold text-white">
