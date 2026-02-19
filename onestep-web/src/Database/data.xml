@@ -6,6 +6,7 @@
     <word>Ameliorate</word>
     <partOfSpeech>Verb</partOfSpeech>
     <meaning>To make something bad or unsatisfactory better.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Alleviate, Improve, Mitigate</synonym>
     <sentences>
       <sentence>The new reform was designed to ameliorate the living conditions of the urban poor.</sentence>
@@ -19,6 +20,7 @@
     <word>Ubiquitous</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Present, appearing, or found everywhere.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Pervasive, Omnipresent, Universal</synonym>
     <sentences>
       <sentence>Mobile phones have become ubiquitous in modern society.</sentence>
@@ -32,6 +34,7 @@
     <word>Surreptitiously</word>
     <partOfSpeech>Adverb</partOfSpeech>
     <meaning>In a way that attempts to avoid notice or attention; secretively.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Clandestinely, Stealthily, Covertly</synonym>
     <sentences>
       <sentence>He surreptitiously slipped the document into his pocket before leaving the room.</sentence>
@@ -45,6 +48,7 @@
     <word>Vociferous</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Expressing or characterized by vehement opinions; loud and forceful.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Clamorous, Strident, Outspoken</synonym>
     <sentences>
       <sentence>The proposal met with vociferous opposition from the local community.</sentence>
@@ -58,6 +62,7 @@
     <word>Effervescent</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Vivacious and enthusiastic; (of a liquid) giving off bubbles.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Ebullient, High-spirited, Bubbling</synonym>
     <sentences>
       <sentence>Her effervescent personality made her the life of every party.</sentence>
@@ -71,6 +76,7 @@
     <word>Pernicious</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Having a harmful effect, especially in a gradual or subtle way.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Damaging, Deleterious, Malignant</synonym>
     <sentences>
       <sentence>The pernicious influence of social media on body image is a growing concern.</sentence>
@@ -84,6 +90,7 @@
     <word>Circumvent</word>
     <partOfSpeech>Verb</partOfSpeech>
     <meaning>Find a way around an obstacle or a rule, often in a clever or dishonest way.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Bypass, Evade, Sidestep</synonym>
     <sentences>
       <sentence>The company was accused of trying to circumvent tax laws using offshore accounts.</sentence>
@@ -97,6 +104,7 @@
     <word>Reticent</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Not revealing one's thoughts or feelings readily.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Reserved, Introverted, Inhibited</synonym>
     <sentences>
       <sentence>She was extremely reticent about her personal life during the interview.</sentence>
@@ -110,6 +118,7 @@
     <word>Mitigate</word>
     <partOfSpeech>Verb</partOfSpeech>
     <meaning>To make something less severe, serious, or painful.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Diminish, Assuage, Palliate</synonym>
     sentences>
       <sentence>Planting more trees is a vital strategy to mitigate the effects of climate change.</sentence>
@@ -123,6 +132,7 @@
     <word>Esoteric</word>
     <partOfSpeech>Adjective</partOfSpeech>
     <meaning>Intended for or likely to be understood by only a small number of people with specialized knowledge.</meaning>
+    <skill>vocabulary</skill>
     <synonym>Abstruse, Obscure, Arcane</synonym>
     <sentences>
       <sentence>The professor’s lecture was filled with esoteric references that few students understood.</sentence>

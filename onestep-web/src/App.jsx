@@ -1,7 +1,29 @@
 import { useState } from 'react'
 import DayCard from './components/DayCard'
 import DayVocabulary from './components/DayVocabulary'
+import dataXml from './Database/data.xml?raw'
 import footprint from './assets/footprint.png'
+
+const normalizeXml = (xml) => xml.replace(/^\s*sentences>/gm, '<sentences>')
+
+const parseSkillsByDay = (xml) => {
+  const parser = new DOMParser()
+  const document = parser.parseFromString(normalizeXml(xml), 'text/xml')
+  if (document.getElementsByTagName('parsererror').length > 0) {
+    return {}
+  }
+  const map = {}
+  Array.from(document.getElementsByTagName('entry')).forEach((entry) => {
+    const day = entry.getElementsByTagName('day')[0]?.textContent?.trim()
+    const skill = entry.getElementsByTagName('skill')[0]?.textContent?.trim()
+    if (day && skill && !map[day]) {
+      map[day] = skill
+    }
+  })
+  return map
+}
+
+const skillsByDay = parseSkillsByDay(dataXml)
 
 function App() {
   const [selectedDay, setSelectedDay] = useState(null)
@@ -25,6 +47,7 @@ function App() {
           <DayCard
             label="Day-01"
             icon="◎"
+            skill={skillsByDay[1]}
             colorClass="bg-[#3a7be0]"
             onClick={() => {
               setSelectedDay(1)
@@ -34,6 +57,7 @@ function App() {
           <DayCard
             label="Day-02"
             icon="◔"
+            skill={skillsByDay[2]}
             colorClass="bg-[#d6453b]"
             onClick={() => {
               setSelectedDay(2)

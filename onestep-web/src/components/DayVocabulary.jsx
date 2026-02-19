@@ -21,6 +21,7 @@ const parseVocabulary = (xml) => {
     word: entry.getElementsByTagName('word')[0]?.textContent?.trim(),
     partOfSpeech: entry.getElementsByTagName('partOfSpeech')[0]?.textContent?.trim(),
     meaning: entry.getElementsByTagName('meaning')[0]?.textContent?.trim(),
+    skill: entry.getElementsByTagName('skill')[0]?.textContent?.trim(),
     synonym: entry.getElementsByTagName('synonym')[0]?.textContent?.trim(),
     sentences: Array.from(entry.getElementsByTagName('sentence')).map((node) =>
       node.textContent?.trim()

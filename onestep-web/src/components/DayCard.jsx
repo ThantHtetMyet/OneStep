@@ -1,4 +1,4 @@
-const DayCard = ({ label, icon, colorClass, onClick }) => {
+const DayCard = ({ label, icon, skill, colorClass, onClick }) => {
   return (
     <button
       type="button"
@@ -9,6 +9,7 @@ const DayCard = ({ label, icon, colorClass, onClick }) => {
         {icon}
       </div>
       <div className="text-3xl font-extrabold">{label}</div>
+      {skill && <div className="text-base font-extrabold">({skill})</div>}
     </button>
   )
 }
