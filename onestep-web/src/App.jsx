@@ -4,10 +4,10 @@ function App() {
   return (
     <div className="min-h-screen bg-[#f2f0ee] text-[#111111]">
       <header className="flex items-center justify-center bg-[#d59a2a] py-5">
-        <div className="flex items-center gap-2 text-2xl font-extrabold tracking-wide">
+        <div className="relative flex items-center text-4xl font-extrabold tracking-wide">
           <span className="inline-block">I-STEP</span>
           <img
-            className="block h-[28px] w-[28px] rotate-[20deg]"
+            className="absolute right-0 top-full mt-1 h-[28px] w-[28px] rotate-[30deg]"
             src={footprint}
             alt=""
           />
