@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import DayCard from './components/DayCard'
 import DayVocabulary from './components/DayVocabulary'
+import ContextParagraph from './components/ContextParagraph/ContextParagraph'
 import dataXml from './Database/vocabulary_data.xml?raw'
 import footprint from './assets/footprint.png'
 
@@ -28,21 +29,27 @@ const skillsByDay = parseSkillsByDay(dataXml)
 function App() {
   const [selectedDay, setSelectedDay] = useState(null)
   const [selectedMode, setSelectedMode] = useState(null)
+  const [showContext, setShowContext] = useState(false)
 
   return (
     <div className="min-h-screen bg-[#f2f0ee] text-[#111111]">
       <header className="flex items-center justify-center bg-[#d59a2a] py-5">
-        <div className="relative flex items-center text-4xl font-extrabold tracking-wide">
+        <button
+          type="button"
+          onClick={() => setShowContext(true)}
+          className="relative flex items-center border-0 bg-transparent p-0 text-4xl font-extrabold tracking-wide"
+        >
           <span className="inline-block">I-STEP</span>
           <img
             className="absolute right-[-18px] top-[76%] h-[28px] w-[28px] -translate-y-1/2 rotate-[30deg]"
             src={footprint}
             alt=""
           />
-        </div>
+        </button>
       </header>
 
-      {!selectedDay && (
+      {showContext && <ContextParagraph onBack={() => setShowContext(false)} />}
+      {!showContext && !selectedDay && (
         <section className="mx-auto grid w-full max-w-[520px] grid-cols-2 justify-items-center gap-6 px-6 pt-8">
           <DayCard
             label="Day-01"
@@ -66,7 +73,7 @@ function App() {
           />
         </section>
       )}
-      {selectedDay && !selectedMode && (
+      {!showContext && selectedDay && !selectedMode && (
         <section className="mx-auto mt-10 flex w-full max-w-xl flex-col gap-6 px-6 pb-10">
           <div className="text-center text-2xl font-extrabold">
             Choose mode for Day-{String(selectedDay).padStart(2, '0')}
@@ -96,7 +103,7 @@ function App() {
           </div>
         </section>
       )}
-      {selectedDay && selectedMode && (
+      {!showContext && selectedDay && selectedMode && (
         <DayVocabulary
           key={`${selectedDay}-${selectedMode}`}
           day={selectedDay}
