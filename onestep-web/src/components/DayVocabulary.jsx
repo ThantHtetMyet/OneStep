@@ -248,19 +248,19 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                 </div>
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <div className="text-3xl font-extrabold">{entry.word}</div>
-                  <div className="text-lg font-semibold text-[#444444]">
-                    {entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}
+                  <div className="flex flex-wrap items-center gap-2 text-lg font-semibold text-[#444444]">
+                    <span>{entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}</span>
+                    <button
+                      type="button"
+                      onClick={handleSpeak}
+                      className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
+                    >
+                      🔊
+                    </button>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="text-lg font-semibold">{entry.meaning}</div>
-                  <button
-                    type="button"
-                    onClick={handleSpeak}
-                    className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
-                  >
-                    🔊
-                  </button>
                 </div>
                 <div className="text-base font-semibold text-[#444444]">
                   {entry.synonym}
@@ -277,19 +277,19 @@ const DayVocabulary = ({ day, mode, onBack }) => {
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <div className="text-3xl font-extrabold">{entry.word}</div>
-                  <div className="text-lg font-semibold text-[#444444]">
-                    {entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}
+                  <div className="flex flex-wrap items-center gap-2 text-lg font-semibold text-[#444444]">
+                    <span>{entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}</span>
+                    <button
+                      type="button"
+                      onClick={handleSpeak}
+                      className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
+                    >
+                      🔊
+                    </button>
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="text-lg font-semibold">{entry.meaning}</div>
-                  <button
-                    type="button"
-                    onClick={handleSpeak}
-                    className="border-2 border-black bg-[#7ed957] px-3 py-1 text-sm font-extrabold"
-                  >
-                    🔊
-                  </button>
                 </div>
                 {entry.myanmarMeaning && (
                   <div className="text-base font-semibold text-[#444444]">
