@@ -29,3 +29,8 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+.case-normal {
+  font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+  text-transform: none;
+}

@@ -143,7 +143,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
   const isFinished = mode === 'answer' && completedCount === dayItems.length
 
   return (
-    <section className="mx-auto mt-10 flex w-full max-w-4xl flex-col gap-6 px-6 pb-10">
+    <section className="case-normal mx-auto mt-10 flex w-full max-w-4xl flex-col gap-6 px-6 pb-10">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="text-2xl font-extrabold">
           Day-{String(day).padStart(2, '0')} · {mode === 'learn' ? 'Learn' : 'Answer'}
@@ -243,7 +243,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
             </div>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <div className="text-3xl font-extrabold">{entry.word}</div>
-              <div className="text-lg font-semibold uppercase text-[#444444]">
+              <div className="text-lg font-semibold text-[#444444]">
                 {entry.partOfSpeech}
               </div>
             </div>
@@ -272,7 +272,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
           <div className="flex flex-col gap-3">
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <div className="text-3xl font-extrabold">{entry.word}</div>
-              <div className="text-lg font-semibold uppercase text-[#444444]">
+              <div className="text-lg font-semibold text-[#444444]">
                 {entry.partOfSpeech}
               </div>
             </div>
