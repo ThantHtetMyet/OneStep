@@ -75,10 +75,8 @@
     <skill>vocabulary</skill>
     <synonym>Damaging, Deleterious, Malignant</synonym>
     <sentences>
-      <sentence>The pernicious influence of social media on body image is a growing concern.</sentence>
       <sentence>Long-term exposure to these chemicals can have a pernicious effect on health.</sentence>
-      <sentence>The spread of misinformation has a pernicious impact on democratic processes.</sentence>
-    </sentences>
+      </sentences>
   </entry>
   <entry>
     <day>2</day>
@@ -90,8 +88,6 @@
     <skill>vocabulary</skill>
     <synonym>Bypass, Evade, Sidestep</synonym>
     <sentences>
-      <sentence>The company was accused of trying to circumvent tax laws using offshore accounts.</sentence>
-      <sentence>They managed to circumvent the security system by exploiting a software glitch.</sentence>
       <sentence>Commuters often take back roads to circumvent the heavy morning traffic.</sentence>
     </sentences>
   </entry>
@@ -106,8 +102,6 @@
     <synonym>Reserved, Introverted, Inhibited</synonym>
     <sentences>
       <sentence>She was extremely reticent about her personal life during the interview.</sentence>
-      <sentence>The witness was reticent to provide details for fear of retaliation.</sentence>
-      <sentence>Despite his success, he remains reticent and prefers to stay out of the spotlight.</sentence>
     </sentences>
   </entry>
   <entry>
@@ -120,9 +114,7 @@
     <skill>vocabulary</skill>
     <synonym>Diminish, Assuage, Palliate</synonym>
     sentences>
-      <sentence>Planting more trees is a vital strategy to mitigate the effects of climate change.</sentence>
-      <sentence>The new safety regulations are intended to mitigate the risk of accidents.</sentence>
-      <sentence>The medicine helped to mitigate the pain after the surgery.</sentence>
+     <sentence>The medicine helped to mitigate the pain after the surgery.</sentence>
     </sentences>
   </entry>
   <entry>
@@ -135,9 +127,7 @@
     <skill>vocabulary</skill>
     <synonym>Abstruse, Obscure, Arcane</synonym>
     <sentences>
-      <sentence>The professor’s lecture was filled with esoteric references that few students understood.</sentence>
       <sentence>He has an esoteric collection of rare 18th-century medical instruments.</sentence>
-      <sentence>The debate became so esoteric that the general public quickly lost interest.</sentence>
     </sentences>
   </entry>
 </vocabulary>

@@ -239,7 +239,8 @@ const DayVocabulary = ({ day, mode, onBack }) => {
             )}
 
             {mode === 'answer' && checked && (
-              <div className="flex flex-col gap-3">
+              <div className="relative flex flex-col gap-3 border-2 border-black bg-[#fff7a8] px-5 py-4 shadow-[0_10px_0_#000000]">
+                <div className="absolute -right-3 -top-3 h-8 w-8 rotate-12 rounded-full border-2 border-black bg-[#ffd84d]" />
                 <div className="text-base font-semibold">
                   Word: {wordCorrect ? '✅' : '❌'}
                 </div>
@@ -262,6 +263,11 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                 <div className="flex flex-wrap items-center gap-3">
                   <div className="text-lg font-semibold">{entry.meaning}</div>
                 </div>
+                {entry.myanmarMeaning && (
+                  <div className="text-base font-semibold text-[#444444]">
+                    {entry.myanmarMeaning}
+                  </div>
+                )}
                 <div className="text-base font-semibold text-[#444444]">
                   Synonym - {entry.synonym}
                 </div>
