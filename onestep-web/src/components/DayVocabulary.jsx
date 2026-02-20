@@ -21,6 +21,9 @@ const parseVocabulary = (xml) => {
     word: entry.getElementsByTagName('word')[0]?.textContent?.trim(),
     partOfSpeech: entry.getElementsByTagName('partOfSpeech')[0]?.textContent?.trim(),
     meaning: entry.getElementsByTagName('meaning')[0]?.textContent?.trim(),
+    myanmarMeaning: entry
+      .getElementsByTagName('myanmarmeaning')[0]
+      ?.textContent?.trim(),
     skill: entry.getElementsByTagName('skill')[0]?.textContent?.trim(),
     synonym: entry.getElementsByTagName('synonym')[0]?.textContent?.trim(),
     sentences: Array.from(entry.getElementsByTagName('sentence')).map((node) =>
@@ -246,7 +249,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <div className="text-3xl font-extrabold">{entry.word}</div>
                   <div className="text-lg font-semibold text-[#444444]">
-                    {entry.partOfSpeech}
+                    {entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
@@ -275,7 +278,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <div className="text-3xl font-extrabold">{entry.word}</div>
                   <div className="text-lg font-semibold text-[#444444]">
-                    {entry.partOfSpeech}
+                    {entry.partOfSpeech ? `(${entry.partOfSpeech})` : ''}
                   </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
@@ -288,6 +291,11 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                     🔊
                   </button>
                 </div>
+                {entry.myanmarMeaning && (
+                  <div className="text-base font-semibold text-[#444444]">
+                    {entry.myanmarMeaning}
+                  </div>
+                )}
                 <div className="text-base font-semibold text-[#444444]">
                   {entry.synonym}
                 </div>
