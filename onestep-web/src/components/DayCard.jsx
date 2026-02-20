@@ -3,7 +3,7 @@ const DayCard = ({ label, icon, skill, colorClass, onClick }) => {
     <button
       type="button"
       onClick={onClick}
-      className={`flex h-[190px] w-[170px] flex-col items-center justify-center gap-3 border-4 border-black shadow-[0_6px_0_#000000] ${colorClass}`}
+      className={`flex h-[190px] w-[170px] flex-col items-center justify-center gap-3 border-4 border-black shadow-[0_6px_0_#000000] transition-transform duration-200 ease-out hover:-translate-y-2 active:-translate-y-1 ${colorClass}`}
     >
       <div className="grid h-10 w-10 place-items-center rounded-[2px] border-2 border-black bg-black text-2xl text-[#e7e7e7]">
         {icon}
