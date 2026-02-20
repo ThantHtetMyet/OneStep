@@ -43,7 +43,7 @@ function App() {
       </header>
 
       {!selectedDay && (
-        <section className="grid grid-cols-2 justify-items-center gap-6 px-6 pt-8">
+        <section className="mx-auto grid w-full max-w-[520px] grid-cols-2 justify-items-center gap-6 px-6 pt-8">
           <DayCard
             label="Day-01"
             icon="◎"
