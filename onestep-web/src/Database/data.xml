@@ -10,9 +10,7 @@
     <skill>vocabulary</skill>
     <synonym>Alleviate, Improve, Mitigate</synonym>
     <sentences>
-      <sentence>The new reform was designed to ameliorate the living conditions of the urban poor.</sentence>
-      <sentence>Steps are being taken to ameliorate the effects of the current economic crisis.</sentence>
-      <sentence>The government's goal is to ameliorate the housing shortage in the capital.</sentence>
+     <sentence>The government's goal is to ameliorate the housing shortage in the capital.</sentence>
     </sentences>
   </entry>
   <entry>
@@ -25,10 +23,8 @@
     <skill>vocabulary</skill>
     <synonym>Pervasive, Omnipresent, Universal</synonym>
     <sentences>
-      <sentence>Mobile phones have become ubiquitous in modern society.</sentence>
       <sentence>The influence of social media is ubiquitous, affecting even the most remote areas.</sentence>
-      <sentence>In the digital age, data collection is ubiquitous and often goes unnoticed.</sentence>
-    </sentences>
+      </sentences>
   </entry>
   <entry>
     <day>1</day>
@@ -40,8 +36,6 @@
     <skill>vocabulary</skill>
     <synonym>Clandestinely, Stealthily, Covertly</synonym>
     <sentences>
-      <sentence>He surreptitiously slipped the document into his pocket before leaving the room.</sentence>
-      <sentence>The cameras were surreptitiously installed to monitor the building's exits.</sentence>
       <sentence>She surreptitiously checked her watch during the long, tedious meeting.</sentence>
     </sentences>
   </entry>
@@ -55,10 +49,8 @@
     <skill>vocabulary</skill>
     <synonym>Clamorous, Strident, Outspoken</synonym>
     <sentences>
-      <sentence>The proposal met with vociferous opposition from the local community.</sentence>
       <sentence>He was a vociferous critic of the new environmental policies.</sentence>
-      <sentence>The fans were vociferous in their support of the underdog team.</sentence>
-    </sentences>
+      </sentences>
   </entry>
   <entry>
     <day>1</day>
@@ -70,8 +62,6 @@
     <skill>vocabulary</skill>
     <synonym>Ebullient, High-spirited, Bubbling</synonym>
     <sentences>
-      <sentence>Her effervescent personality made her the life of every party.</sentence>
-      <sentence>The speaker’s effervescent style kept the audience engaged for hours.</sentence>
       <sentence>The drink was cold and effervescent, providing instant refreshment.</sentence>
     </sentences>
   </entry>

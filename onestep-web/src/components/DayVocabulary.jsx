@@ -263,7 +263,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                   <div className="text-lg font-semibold">{entry.meaning}</div>
                 </div>
                 <div className="text-base font-semibold text-[#444444]">
-                  {entry.synonym}
+                  Synonym - {entry.synonym}
                 </div>
                 <ul className="list-disc space-y-2 pl-6 text-base font-semibold">
                   {entry.sentences.map((sentence, index) => (
@@ -297,7 +297,7 @@ const DayVocabulary = ({ day, mode, onBack }) => {
                   </div>
                 )}
                 <div className="text-base font-semibold text-[#444444]">
-                  {entry.synonym}
+                  Synonym - {entry.synonym}
                 </div>
                 <ul className="list-disc space-y-2 pl-6 text-base font-semibold">
                   {entry.sentences.map((sentence, index) => (
