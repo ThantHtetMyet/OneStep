@@ -55,26 +55,26 @@ const requestAiParagraph = async (dayGroups, token) => {
   const headers = token
     ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
     : { 'Content-Type': 'application/json' }
-  const response = await fetch(
-    '/api/hf/v1/chat/completions',
-    {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        model: 'moonshotai/Kimi-K2-Instruct-0905',
-        messages: [
-          {
-            role: 'system',
-            content:
-              'Respond with only the requested paragraphs. Do not include analysis, reasoning, labels, or extra text.',
-          },
-          { role: 'user', content: prompt },
-        ],
-        temperature: 0.9,
-        max_tokens: 220,
-      }),
-    }
-  )
+  const apiBase = import.meta.env.DEV
+    ? '/api/hf'
+    : 'https://router.huggingface.co'
+  const response = await fetch(`${apiBase}/v1/chat/completions`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      model: 'moonshotai/Kimi-K2-Instruct-0905',
+      messages: [
+        {
+          role: 'system',
+          content:
+            'Respond with only the requested paragraphs. Do not include analysis, reasoning, labels, or extra text.',
+        },
+        { role: 'user', content: prompt },
+      ],
+      temperature: 0.9,
+      max_tokens: 220,
+    }),
+  })
   const rawText = await response.text()
   let data = null
   try {
