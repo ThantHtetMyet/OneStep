@@ -52,12 +52,18 @@ const requestAiParagraph = async (dayGroups, token) => {
     )
     .join('\n')
   const prompt = `Write one natural, contextual paragraph per day in this order. Each paragraph must use only that day's words exactly once and keep the same word casing. Return only the paragraphs in order, separated by a blank line. Do not add labels or analysis. Words by day:\n${dayLines}`
-  const headers = token
-    ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
-    : { 'Content-Type': 'application/json' }
+  const prodProxy = import.meta.env.VITE_AI_PROXY_URL?.trim()
+  const useProxy = !import.meta.env.DEV && prodProxy
+  const headers = useProxy
+    ? { 'Content-Type': 'application/json' }
+    : token
+      ? { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
+      : { 'Content-Type': 'application/json' }
   const apiBase = import.meta.env.DEV
     ? '/api/hf'
-    : 'https://router.huggingface.co'
+    : useProxy
+      ? prodProxy
+      : 'https://router.huggingface.co'
   const response = await fetch(`${apiBase}/v1/chat/completions`, {
     method: 'POST',
     headers,
