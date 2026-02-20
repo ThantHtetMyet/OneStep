@@ -28,6 +28,15 @@ body {
 button {
   font-family: inherit;
   cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+button:hover {
+  transform: translateY(-4px);
+}
+
+button:active {
+  transform: translateY(-2px);
 }
 
 .case-normal {

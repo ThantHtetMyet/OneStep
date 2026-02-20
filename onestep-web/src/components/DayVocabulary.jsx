@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import dataXml from '../Database/data.xml?raw'
+import dataXml from '../Database/vocabulary_data.xml?raw'
 
 const imageImports = import.meta.glob('../Database/Images/*.png', {
   eager: true,

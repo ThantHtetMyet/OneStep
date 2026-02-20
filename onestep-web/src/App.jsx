@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import DayCard from './components/DayCard'
 import DayVocabulary from './components/DayVocabulary'
-import dataXml from './Database/data.xml?raw'
+import dataXml from './Database/vocabulary_data.xml?raw'
 import footprint from './assets/footprint.png'
 
 const normalizeXml = (xml) => xml.replace(/^\s*sentences>/gm, '<sentences>')
